@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "order": {
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ]
+        },
+        "begin_updated_at": {
+            "required": false,
+            "type": "string"
+        },
+        "end_updated_at": {
+            "required": false,
+            "type": "string"
+        },
+        "begin_created_at": {
+            "required": false,
+            "type": "string"
+        },
+        "end_created_at": {
+            "required": false,
+            "type": "string"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "ACTIVE",
+                "INACTIVE"
+            ]
+        },
+        "external_id": {
+            "type": "string"
+        },
+        "limit": {
+            "type": "integer",
+            "maximum": 200
+        },
+        "batch_token": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

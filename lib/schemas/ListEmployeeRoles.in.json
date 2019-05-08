@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "order": {
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ]
+        },
+        "limit": {
+            "type": "integer",
+            "maximum": 200
+        },
+        "batch_token": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

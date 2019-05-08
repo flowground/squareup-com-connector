@@ -1,0 +1,204 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "",
+            "example": {
+                "request_body": {
+                    "object_types": [
+                        "ITEM"
+                    ]
+                },
+                "request_url": "https://connect.squareup.com/v2/catalog/search"
+            },
+            "properties": {
+                "begin_time": {
+                    "description": "Return only objects that have been modified after this [timestamp](#workingwithdates)\n(in RFC 3339 format, e.g., \"2016-09-04T23:59:33.123Z\"). The timestamp is exclusive -\nobjects whose timestamp is equal to `begin_time` will not be included in the response.",
+                    "type": "string"
+                },
+                "cursor": {
+                    "description": "The pagination cursor returned in the previous response. Leave unset for an initial request.\nSee [Paginating results](#paginatingresults) for more information.",
+                    "type": "string"
+                },
+                "include_deleted_objects": {
+                    "description": "If `true`, deleted objects will be included in the results. Deleted objects will have their\n`is_deleted` field set to `true`.",
+                    "type": "boolean"
+                },
+                "include_related_objects": {
+                    "description": "If `true`, the response will include additional objects that are related to the\nrequested object, as follows:\n\nIf a [CatalogItem](#type-catalogitem) is returned in the object field of the response,\nits associated [CatalogCategory](#type-catalogcategory), [CatalogTax](#type-catalogtax)es, and\n[CatalogModifierList](#type-catalogmodifierlist)s will be included in the `related_objects` field of the\nresponse.\n\nIf a [CatalogItemVariation](#type-catalogitemvariation) is returned in the object field of the\nresponse, its parent [CatalogItem](#type-catalogitem) will be included in the `related_objects` field of\nthe response.",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "A limit on the number of results to be returned in a single page. The limit is advisory -\nthe implementation may return more or fewer results. If the supplied limit is negative, zero, or\nis higher than the maximum limit of 1,000, it will be ignored.",
+                    "type": "integer"
+                },
+                "object_types": {
+                    "description": "The desired set of object types to appear in the search results. The legal values are taken from the\n[CatalogObjectType](#type-catalogobjecttype) enumeration, namely `\"ITEM\"`, `\"ITEM_VARIATION\"`, `\"CATEGORY\"`,\n`\"DISCOUNT\"`, `\"TAX\"`, `\"MODIFIER\"`, or `\"MODIFIER_LIST\"`.",
+                    "items": {
+                        "enum": [
+                            "ITEM",
+                            "CATEGORY",
+                            "ITEM_VARIATION",
+                            "TAX",
+                            "DISCOUNT",
+                            "MODIFIER_LIST",
+                            "MODIFIER"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "query": {
+                    "description": "A query to be used to filter or sort the results. If no query is specified, the entire catalog will be returned.",
+                    "properties": {
+                        "exact_query": {
+                            "description": "A query that returns only objects for which the given (string-valued) attribute has the\ngiven case-insensitive value.",
+                            "properties": {
+                                "attribute_name": {
+                                    "description": "The name of the attribute to be searched.",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "attribute_value": {
+                                    "description": "The desired value of the search attribute.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "attribute_name",
+                                "attribute_value"
+                            ],
+                            "type": "object"
+                        },
+                        "items_for_modifier_list_query": {
+                            "description": "A query that returns all [CatalogItem](#type-catalogitem)s that have any of the given [CatalogModifierList](#type-catalogmodifierlist)s enabled.",
+                            "properties": {
+                                "modifier_list_ids": {
+                                    "description": "A set of [CatalogModifierList](#type-catalogmodifierlist) IDs to be used to find associated [CatalogItem](#type-catalogitem)s.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "modifier_list_ids"
+                            ],
+                            "type": "object"
+                        },
+                        "items_for_tax_query": {
+                            "description": "A query that returns all [CatalogItem](#type-catalogitem)s that have any of the given [CatalogTax](#type-catalogtax)es enabled.",
+                            "properties": {
+                                "tax_ids": {
+                                    "description": "A set of [CatalogTax](#type-catalogtax) IDs to be used to find associated [CatalogItem](#type-catalogitem)s.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "tax_ids"
+                            ],
+                            "type": "object"
+                        },
+                        "prefix_query": {
+                            "description": "A query that returns only objects for which the given (string-valued) attribute has the\ngiven case-insensitive prefix.",
+                            "properties": {
+                                "attribute_name": {
+                                    "description": "The name of the attribute to be searched.",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "attribute_prefix": {
+                                    "description": "The desired prefix of the search attribute value.",
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "attribute_name",
+                                "attribute_prefix"
+                            ],
+                            "type": "object"
+                        },
+                        "range_query": {
+                            "description": "A query that returns only objects for which the given (integer-valued) attribute lies in the given range.",
+                            "properties": {
+                                "attribute_max_value": {
+                                    "description": "The desired maximum value for the search attribute (inclusive).",
+                                    "format": "int64",
+                                    "type": "integer"
+                                },
+                                "attribute_min_value": {
+                                    "description": "The desired minimum value for the search attribute (inclusive).",
+                                    "format": "int64",
+                                    "type": "integer"
+                                },
+                                "attribute_name": {
+                                    "description": "The name of the attribute to be searched.",
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "attribute_name"
+                            ],
+                            "type": "object"
+                        },
+                        "sorted_attribute_query": {
+                            "description": "A query that returns all objects, sorted by the given attribute.",
+                            "properties": {
+                                "attribute_name": {
+                                    "description": "The attribute whose value should be used as the sort key.",
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "initial_attribute_value": {
+                                    "description": "The first attribute value to be returned by the query. Ascending sorts will return only\nobjects with this value or greater, while descending sorts will return only objects with this value\nor less. If unset, start at the beginning (for ascending sorts) or end (for descending sorts).",
+                                    "type": "string"
+                                },
+                                "sort_order": {
+                                    "description": "The desired [SortOrder](#type-sortorder), `\"ASC\"` (ascending) or `\"DESC\"` (descending).",
+                                    "enum": [
+                                        "DESC",
+                                        "ASC"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "attribute_name"
+                            ],
+                            "type": "object"
+                        },
+                        "text_query": {
+                            "description": "A query that returns only objects whose searchable attributes contain all of the given\nkeywords as prefixes. For example, if a [CatalogItem](#type-catalogitem) contains attributes `{\"name\": \"t-shirt\"}` and\n`{\"description\": \"Small, Purple\"}`, it will be matched by the query `{\"keywords\": [\"shirt\", \"sma\", \"purp\"]}`.",
+                            "properties": {
+                                "keywords": {
+                                    "description": "A list of one, two, or three search keywords. Keywords with fewer than three characters\nare ignored.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "keywords"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object",
+            "x-sq-sdk-sample-code": {
+                "csharp": "/sdk_samples/Catalog/SearchCatalogObjects/SearchCatalogObjectsRequest.csharp",
+                "php": "/sdk_samples/Catalog/SearchCatalogObjects/SearchCatalogObjectsRequest.php",
+                "python": "/sdk_samples/Catalog/SearchCatalogObjects/SearchCatalogObjectsRequest.python",
+                "ruby": "/sdk_samples/Catalog/SearchCatalogObjects/SearchCatalogObjectsRequest.ruby"
+            }
+        }
+    }
+}

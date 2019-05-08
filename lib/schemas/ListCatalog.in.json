@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "cursor": {
+            "required": false,
+            "type": "string"
+        },
+        "types": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

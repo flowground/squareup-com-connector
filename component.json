@@ -1,0 +1,1682 @@
+{
+    "title": "Square Connect",
+    "description": "Client library for accessing the Square Connect APIs",
+    "docsUrl": "https://docs.connect.squareup.com/",
+    "url": "https://api.apis.guru/v2/specs/squareup.com/2.0/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://connect.squareup.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "oauth2": {
+                "label": "oauth2",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://connect.squareup.com/oauth2/authorize",
+            "token_uri": "https://connect.squareup.com/oauth2/token"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "RetrieveBusiness": {
+            "main": "./lib/actions/RetrieveBusiness.js",
+            "title": "Get a business's information.",
+            "description": "Get a business's information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveBusiness.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListEmployees": {
+            "main": "./lib/actions/ListEmployees.js",
+            "title": "Provides summary information for all of a business's employees.",
+            "description": "Provides summary information for all of a business's employees.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListEmployees.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateEmployee": {
+            "main": "./lib/actions/CreateEmployee.js",
+            "title": "Creates an employee for a business.",
+            "description": "Creates an employee for a business.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateEmployee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveEmployee": {
+            "main": "./lib/actions/RetrieveEmployee.js",
+            "title": "Provides the details for a single employee.",
+            "description": "Provides the details for a single employee.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveEmployee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateEmployee": {
+            "main": "./lib/actions/UpdateEmployee.js",
+            "title": "V1 UpdateEmployee",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateEmployee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_me_locations": {
+            "main": "./lib/actions/get_v1_me_locations.js",
+            "title": "Provides details for a business's locations, including their IDs.",
+            "description": "Provides details for a business's locations, including their IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_me_locations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListEmployeeRoles": {
+            "main": "./lib/actions/ListEmployeeRoles.js",
+            "title": "Provides summary information for all of a business's employee roles.",
+            "description": "Provides summary information for all of a business's employee roles.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListEmployeeRoles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateEmployeeRole": {
+            "main": "./lib/actions/CreateEmployeeRole.js",
+            "title": "Creates an employee role you can then assign to employees.",
+            "description": "Creates an employee role you can then assign to employees.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateEmployeeRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveEmployeeRole": {
+            "main": "./lib/actions/RetrieveEmployeeRole.js",
+            "title": "Provides the details for a single employee role.",
+            "description": "Provides the details for a single employee role.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveEmployeeRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateEmployeeRole": {
+            "main": "./lib/actions/UpdateEmployeeRole.js",
+            "title": "Modifies the details of an employee role.",
+            "description": "Modifies the details of an employee role.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateEmployeeRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTimecards": {
+            "main": "./lib/actions/ListTimecards.js",
+            "title": "Provides summary information for all of a business's employee timecards.",
+            "description": "Provides summary information for all of a business's employee timecards.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTimecards.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateTimecard": {
+            "main": "./lib/actions/CreateTimecard.js",
+            "title": "Creates a timecard for an employee. Each timecard corresponds to a single shift.",
+            "description": "Creates a timecard for an employee. Each timecard corresponds to a single shift.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateTimecard.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteTimecard": {
+            "main": "./lib/actions/DeleteTimecard.js",
+            "title": "Deletes a timecard. Deleted timecards are still accessible from Connect API endpoints, but the value of their deleted field is set to true. See Handling deleted timecards for more information.",
+            "description": "Deletes a timecard. Deleted timecards are still accessible from Connect API endpoints, but the value of their deleted field is set to true. See Handling deleted timecards for more information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteTimecard.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveTimecard": {
+            "main": "./lib/actions/RetrieveTimecard.js",
+            "title": "Provides the details for a single timecard.",
+            "description": "Provides the details for a single timecard.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveTimecard.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateTimecard": {
+            "main": "./lib/actions/UpdateTimecard.js",
+            "title": "Modifies a timecard's details. This creates an API_EDIT event for the timecard. You can view a timecard's event history with the List Timecard Events endpoint.",
+            "description": "Modifies a timecard's details. This creates an API_EDIT event for the timecard. You can view a timecard's event history with the List Timecard Events endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateTimecard.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTimecardEvents": {
+            "main": "./lib/actions/ListTimecardEvents.js",
+            "title": "Provides summary information for all events associated with a particular timecard.",
+            "description": "Provides summary information for all events associated with a particular timecard.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTimecardEvents.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListBankAccounts": {
+            "main": "./lib/actions/ListBankAccounts.js",
+            "title": "Provides non-confidential details for all of a location's associated bank accounts. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.",
+            "description": "Provides non-confidential details for all of a location's associated bank accounts. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListBankAccounts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveBankAccount": {
+            "main": "./lib/actions/RetrieveBankAccount.js",
+            "title": "Provides non-confidential details for a merchant's associated bank account. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.",
+            "description": "Provides non-confidential details for a merchant's associated bank account. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveBankAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListCashDrawerShifts": {
+            "main": "./lib/actions/ListCashDrawerShifts.js",
+            "title": "Provides the details for all of a location's cash drawer shifts during a date range. The date range you specify cannot exceed 90 days.",
+            "description": "Provides the details for all of a location's cash drawer shifts during a date range. The date range you specify cannot exceed 90 days.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListCashDrawerShifts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveCashDrawerShift": {
+            "main": "./lib/actions/RetrieveCashDrawerShift.js",
+            "title": "Provides the details for a single cash drawer shift, including all events that occurred during the shift.",
+            "description": "Provides the details for a single cash drawer shift, including all events that occurred during the shift.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveCashDrawerShift.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListCategories": {
+            "main": "./lib/actions/ListCategories.js",
+            "title": "Lists all of a location's item categories.",
+            "description": "Lists all of a location's item categories.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListCategories.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCategory": {
+            "main": "./lib/actions/CreateCategory.js",
+            "title": "Creates an item category.",
+            "description": "Creates an item category.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCategory": {
+            "main": "./lib/actions/DeleteCategory.js",
+            "title": "Deletes an existing item category.",
+            "description": "Deletes an existing item category.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCategory": {
+            "main": "./lib/actions/UpdateCategory.js",
+            "title": "Modifies the details of an existing item category.",
+            "description": "Modifies the details of an existing item category.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListDiscounts": {
+            "main": "./lib/actions/ListDiscounts.js",
+            "title": "Lists all of a location's discounts.",
+            "description": "Lists all of a location's discounts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDiscounts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDiscount": {
+            "main": "./lib/actions/CreateDiscount.js",
+            "title": "Creates a discount.",
+            "description": "Creates a discount.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDiscount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDiscount": {
+            "main": "./lib/actions/DeleteDiscount.js",
+            "title": "Deletes an existing discount.",
+            "description": "Deletes an existing discount.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDiscount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDiscount": {
+            "main": "./lib/actions/UpdateDiscount.js",
+            "title": "Modifies the details of an existing discount.",
+            "description": "Modifies the details of an existing discount.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDiscount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListFees": {
+            "main": "./lib/actions/ListFees.js",
+            "title": "Lists all of a location's fees (taxes).",
+            "description": "Lists all of a location's fees (taxes).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListFees.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateFee": {
+            "main": "./lib/actions/CreateFee.js",
+            "title": "Creates a fee (tax).",
+            "description": "Creates a fee (tax).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateFee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteFee": {
+            "main": "./lib/actions/DeleteFee.js",
+            "title": "Deletes an existing fee (tax).",
+            "description": "Deletes an existing fee (tax).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteFee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateFee": {
+            "main": "./lib/actions/UpdateFee.js",
+            "title": "Modifies the details of an existing fee (tax).",
+            "description": "Modifies the details of an existing fee (tax).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateFee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListInventory": {
+            "main": "./lib/actions/ListInventory.js",
+            "title": "Provides inventory information for all of a merchant's inventory-enabled item variations.",
+            "description": "Provides inventory information for all of a merchant's inventory-enabled item variations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListInventory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AdjustInventory": {
+            "main": "./lib/actions/AdjustInventory.js",
+            "title": "Adjusts an item variation's current available inventory.",
+            "description": "Adjusts an item variation's current available inventory.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AdjustInventory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListItems": {
+            "main": "./lib/actions/ListItems.js",
+            "title": "Provides summary information for all of a location's items.",
+            "description": "Provides summary information for all of a location's items.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListItems.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateItem": {
+            "main": "./lib/actions/CreateItem.js",
+            "title": "Creates an item and at least one variation for it.",
+            "description": "Creates an item and at least one variation for it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateItem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteItem": {
+            "main": "./lib/actions/DeleteItem.js",
+            "title": "Deletes an existing item and all item variations associated with it.",
+            "description": "Deletes an existing item and all item variations associated with it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteItem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveItem": {
+            "main": "./lib/actions/RetrieveItem.js",
+            "title": "Provides the details for a single item, including associated modifier lists and fees.",
+            "description": "Provides the details for a single item, including associated modifier lists and fees.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveItem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateItem": {
+            "main": "./lib/actions/UpdateItem.js",
+            "title": "Modifies the core details of an existing item.",
+            "description": "Modifies the core details of an existing item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateItem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RemoveFee": {
+            "main": "./lib/actions/RemoveFee.js",
+            "title": "Removes a fee assocation from an item, meaning the fee is no longer automatically applied to the item in Square Register.",
+            "description": "Removes a fee assocation from an item, meaning the fee is no longer automatically applied to the item in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RemoveFee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApplyFee": {
+            "main": "./lib/actions/ApplyFee.js",
+            "title": "Associates a fee with an item, meaning the fee is automatically applied to the item in Square Register.",
+            "description": "Associates a fee with an item, meaning the fee is automatically applied to the item in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApplyFee.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RemoveModifierList": {
+            "main": "./lib/actions/RemoveModifierList.js",
+            "title": "Removes a modifier list association from an item, meaning modifier options from the list can no longer be applied to the item.",
+            "description": "Removes a modifier list association from an item, meaning modifier options from the list can no longer be applied to the item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RemoveModifierList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ApplyModifierList": {
+            "main": "./lib/actions/ApplyModifierList.js",
+            "title": "Associates a modifier list with an item, meaning modifier options from the list can be applied to the item.",
+            "description": "Associates a modifier list with an item, meaning modifier options from the list can be applied to the item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApplyModifierList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateVariation": {
+            "main": "./lib/actions/CreateVariation.js",
+            "title": "Creates an item variation for an existing item.",
+            "description": "Creates an item variation for an existing item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateVariation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteVariation": {
+            "main": "./lib/actions/DeleteVariation.js",
+            "title": "Deletes an existing item variation from an item.",
+            "description": "Deletes an existing item variation from an item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteVariation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateVariation": {
+            "main": "./lib/actions/UpdateVariation.js",
+            "title": "Modifies the details of an existing item variation.",
+            "description": "Modifies the details of an existing item variation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateVariation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListModifierLists": {
+            "main": "./lib/actions/ListModifierLists.js",
+            "title": "Lists all of a location's modifier lists.",
+            "description": "Lists all of a location's modifier lists.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListModifierLists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateModifierList": {
+            "main": "./lib/actions/CreateModifierList.js",
+            "title": "Creates an item modifier list and at least one modifier option for it.",
+            "description": "Creates an item modifier list and at least one modifier option for it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateModifierList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteModifierList": {
+            "main": "./lib/actions/DeleteModifierList.js",
+            "title": "Deletes an existing item modifier list and all modifier options associated with it.",
+            "description": "Deletes an existing item modifier list and all modifier options associated with it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteModifierList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveModifierList": {
+            "main": "./lib/actions/RetrieveModifierList.js",
+            "title": "Provides the details for a single modifier list.",
+            "description": "Provides the details for a single modifier list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveModifierList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateModifierList": {
+            "main": "./lib/actions/UpdateModifierList.js",
+            "title": "Modifies the details of an existing item modifier list.",
+            "description": "Modifies the details of an existing item modifier list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateModifierList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateModifierOption": {
+            "main": "./lib/actions/CreateModifierOption.js",
+            "title": "Creates an item modifier option and adds it to a modifier list.",
+            "description": "Creates an item modifier option and adds it to a modifier list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateModifierOption.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteModifierOption": {
+            "main": "./lib/actions/DeleteModifierOption.js",
+            "title": "Deletes an existing item modifier option from a modifier list.",
+            "description": "Deletes an existing item modifier option from a modifier list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteModifierOption.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateModifierOption": {
+            "main": "./lib/actions/UpdateModifierOption.js",
+            "title": "Modifies the details of an existing item modifier option.",
+            "description": "Modifies the details of an existing item modifier option.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateModifierOption.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListOrders": {
+            "main": "./lib/actions/ListOrders.js",
+            "title": "Provides summary information for a merchant's online store orders.",
+            "description": "Provides summary information for a merchant's online store orders.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListOrders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveOrder": {
+            "main": "./lib/actions/RetrieveOrder.js",
+            "title": "Provides comprehensive information for a single online store order, including the order's history.",
+            "description": "Provides comprehensive information for a single online store order, including the order's history.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveOrder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateOrder": {
+            "main": "./lib/actions/UpdateOrder.js",
+            "title": "Updates the details of an online store order. Every update you perform on an order corresponds to one of three actions:",
+            "description": "Updates the details of an online store order. Every update you perform on an order corresponds to one of three actions:",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateOrder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListPages": {
+            "main": "./lib/actions/ListPages.js",
+            "title": "Lists all of a location's Favorites pages in Square Register.",
+            "description": "Lists all of a location's Favorites pages in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListPages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreatePage": {
+            "main": "./lib/actions/CreatePage.js",
+            "title": "Creates a Favorites page in Square Register.",
+            "description": "Creates a Favorites page in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreatePage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeletePage": {
+            "main": "./lib/actions/DeletePage.js",
+            "title": "Deletes an existing Favorites page and all of its cells.",
+            "description": "Deletes an existing Favorites page and all of its cells.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeletePage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdatePage": {
+            "main": "./lib/actions/UpdatePage.js",
+            "title": "Modifies the details of a Favorites page in Square Register.",
+            "description": "Modifies the details of a Favorites page in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdatePage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeletePageCell": {
+            "main": "./lib/actions/DeletePageCell.js",
+            "title": "Deletes a cell from a Favorites page in Square Register.",
+            "description": "Deletes a cell from a Favorites page in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeletePageCell.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdatePageCell": {
+            "main": "./lib/actions/UpdatePageCell.js",
+            "title": "Modifies a cell of a Favorites page in Square Register.",
+            "description": "Modifies a cell of a Favorites page in Square Register.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdatePageCell.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListPayments": {
+            "main": "./lib/actions/ListPayments.js",
+            "title": "Provides summary information for all payments taken by a merchant or any of the merchant's mobile staff during a date range. Date ranges cannot exceed one year in length. See Date ranges for details of inclusive and exclusive dates.",
+            "description": "Provides summary information for all payments taken by a merchant or any of the merchant's mobile staff during a date range. Date ranges cannot exceed one year in length. See Date ranges for details of inclusive and exclusive dates.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListPayments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrievePayment": {
+            "main": "./lib/actions/RetrievePayment.js",
+            "title": "Provides comprehensive information for a single payment.",
+            "description": "Provides comprehensive information for a single payment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrievePayment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1__location_id__refunds": {
+            "main": "./lib/actions/get_v1__location_id__refunds.js",
+            "title": "Provides the details for all refunds initiated by a merchant or any of the merchant's mobile staff during a date range. Date ranges cannot exceed one year in length.",
+            "description": "Provides the details for all refunds initiated by a merchant or any of the merchant's mobile staff during a date range. Date ranges cannot exceed one year in length.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1__location_id__refunds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v1__location_id__refunds": {
+            "main": "./lib/actions/post_v1__location_id__refunds.js",
+            "title": "Issues a refund for a previously processed payment. You must issue a refund within 60 days of the associated payment.",
+            "description": "Issues a refund for a previously processed payment. You must issue a refund within 60 days of the associated payment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v1__location_id__refunds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSettlements": {
+            "main": "./lib/actions/ListSettlements.js",
+            "title": "Provides summary information for all deposits and withdrawals initiated by Square to a merchant's bank account during a date range. Date ranges cannot exceed one year in length.",
+            "description": "Provides summary information for all deposits and withdrawals initiated by Square to a merchant's bank account during a date range. Date ranges cannot exceed one year in length. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSettlements.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveSettlement": {
+            "main": "./lib/actions/RetrieveSettlement.js",
+            "title": "Provides comprehensive information for a single settlement, including the entries that contribute to the settlement's total.",
+            "description": "Provides comprehensive information for a single settlement, including the entries that contribute to the settlement's total.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveSettlement.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BatchDeleteCatalogObjects": {
+            "main": "./lib/actions/BatchDeleteCatalogObjects.js",
+            "title": "BatchDeleteCatalogObjects",
+            "description": "Deletes a set of [CatalogItem](#type-catalogitem)s based on the\nprovided list of target IDs and returns a set of successfully deleted IDs in\nthe response. Deletion is a cascading event such that all children of the\ntargeted object are also deleted. For example, deleting a CatalogItem will\nalso delete all of its [CatalogItemVariation](#type-catalogitemvariation)\nchildren.\n\n`BatchDeleteCatalogObjects` succeeds even if only a portion of the targeted\nIDs can be deleted. The response will only include IDs that were\nactually deleted.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BatchDeleteCatalogObjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BatchRetrieveCatalogObjects": {
+            "main": "./lib/actions/BatchRetrieveCatalogObjects.js",
+            "title": "BatchRetrieveCatalogObjects",
+            "description": "Returns a set of objects based on the provided ID.\nEach [CatalogItem](#type-catalogitem) returned in the set includes all of its\nchild information including: all of its\n[CatalogItemVariation](#type-catalogitemvariation) objects, references to\nits [CatalogModifierList](#type-catalogmodifierlist) objects, and the ids of\nany [CatalogTax](#type-catalogtax) objects that apply to it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BatchRetrieveCatalogObjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BatchUpsertCatalogObjects": {
+            "main": "./lib/actions/BatchUpsertCatalogObjects.js",
+            "title": "BatchUpsertCatalogObjects",
+            "description": "Creates or updates up to 10,000 target objects based on the provided\nlist of objects. The target objects are grouped into batches and each batch is\ninserted/updated in an all-or-nothing manner. If an object within a batch is\nmalformed in some way, or violates a database constraint, the entire batch\ncontaining that item will be disregarded. However, other batches in the same\nrequest may still succeed. Each batch may contain up to 1,000 objects, and\nbatches will be processed in order as long as the total object count for the\nrequest (items, variations, modifier lists, discounts, and taxes) is no more\nthan 10,000.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BatchUpsertCatalogObjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CatalogInfo": {
+            "main": "./lib/actions/CatalogInfo.js",
+            "title": "CatalogInfo",
+            "description": "Returns information about the Square Catalog API, such as batch size\nlimits for `BatchUpsertCatalogObjects`.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CatalogInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListCatalog": {
+            "main": "./lib/actions/ListCatalog.js",
+            "title": "ListCatalog",
+            "description": "Returns a list of [CatalogObject](#type-catalogobject)s that includes\nall objects of a set of desired types (for example, all [CatalogItem](#type-catalogitem)\nand [CatalogTax](#type-catalogtax) objects) in the catalog. The types parameter\nis specified as a comma-separated list of valid [CatalogObject](#type-catalogobject) types:\n`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListCatalog.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpsertCatalogObject": {
+            "main": "./lib/actions/UpsertCatalogObject.js",
+            "title": "UpsertCatalogObject",
+            "description": "Creates or updates the target [CatalogObject](#type-catalogobject).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpsertCatalogObject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCatalogObject": {
+            "main": "./lib/actions/DeleteCatalogObject.js",
+            "title": "DeleteCatalogObject",
+            "description": "Deletes a single [CatalogObject](#type-catalogobject) based on the\nprovided ID and returns the set of successfully deleted IDs in the response.\nDeletion is a cascading event such that all children of the targeted object\nare also deleted. For example, deleting a [CatalogItem](#type-catalogitem)\nwill also delete all of its\n[CatalogItemVariation](#type-catalogitemvariation) children.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCatalogObject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveCatalogObject": {
+            "main": "./lib/actions/RetrieveCatalogObject.js",
+            "title": "RetrieveCatalogObject",
+            "description": "Returns a single [CatalogItem](#type-catalogitem) as a\n[CatalogObject](#type-catalogobject) based on the provided ID. The returned\nobject includes all of the relevant [CatalogItem](#type-catalogitem)\ninformation including: [CatalogItemVariation](#type-catalogitemvariation)\nchildren, references to its\n[CatalogModifierList](#type-catalogmodifierlist) objects, and the ids of\nany [CatalogTax](#type-catalogtax) objects that apply to it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveCatalogObject.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchCatalogObjects": {
+            "main": "./lib/actions/SearchCatalogObjects.js",
+            "title": "SearchCatalogObjects",
+            "description": "Queries the targeted catalog using a variety of query types\n([CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),\n([CatalogQueryExact](#type-catalogqueryexact),\n([CatalogQueryRange](#type-catalogqueryrange),\n([CatalogQueryText](#type-catalogquerytext),\n([CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),\n([CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierlist)).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchCatalogObjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateItemModifierLists": {
+            "main": "./lib/actions/UpdateItemModifierLists.js",
+            "title": "UpdateItemModifierLists",
+            "description": "Updates the [CatalogModifierList](#type-catalogmodifierlist) objects\nthat apply to the targeted [CatalogItem](#type-catalogitem) without having\nto perform an upsert on the entire item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateItemModifierLists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateItemTaxes": {
+            "main": "./lib/actions/UpdateItemTaxes.js",
+            "title": "UpdateItemTaxes",
+            "description": "Updates the [CatalogTax](#type-catalogtax) objects that apply to the\ntargeted [CatalogItem](#type-catalogitem) without having to perform an\nupsert on the entire item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateItemTaxes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListCustomers": {
+            "main": "./lib/actions/ListCustomers.js",
+            "title": "ListCustomers",
+            "description": "Lists a business's customers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListCustomers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCustomer": {
+            "main": "./lib/actions/CreateCustomer.js",
+            "title": "CreateCustomer",
+            "description": "Creates a new customer for a business, which can have associated cards on file.\n\nYou must provide __at least one__ of the following values in your request to this\nendpoint:\n\n- `given_name`\n- `family_name`\n- `company_name`\n- `email_address`\n- `phone_number`\n\nThis endpoint does not accept an idempotency key. If you accidentally create\na duplicate customer, you can delete it with the\n[DeleteCustomer](#endpoint-deletecustomer) endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCustomer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCustomer": {
+            "main": "./lib/actions/DeleteCustomer.js",
+            "title": "DeleteCustomer",
+            "description": "Deletes a customer from a business, along with any linked cards on file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCustomer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveCustomer": {
+            "main": "./lib/actions/RetrieveCustomer.js",
+            "title": "RetrieveCustomer",
+            "description": "Returns details for a single customer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveCustomer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCustomer": {
+            "main": "./lib/actions/UpdateCustomer.js",
+            "title": "UpdateCustomer",
+            "description": "Updates the details of an existing customer.\nThe ID of the customer may change if the customer has been merged into another customer.\n\nYou cannot edit a customer's cards on file with this endpoint. To make changes\nto a card on file, you must delete the existing card on file with the\n[DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then create a new one with the\n[CreateCustomerCard](#endpoint-createcustomercard) endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCustomer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCustomerCard": {
+            "main": "./lib/actions/CreateCustomerCard.js",
+            "title": "CreateCustomerCard",
+            "description": "Adds a card on file to an existing customer. In the United States\nSquare takes care of automatically updating any cards on file that might\nhave expired since you first attached them to a customer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCustomerCard.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCustomerCard": {
+            "main": "./lib/actions/DeleteCustomerCard.js",
+            "title": "DeleteCustomerCard",
+            "description": "Removes a card on file from a customer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCustomerCard.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_locations": {
+            "main": "./lib/actions/get_v2_locations.js",
+            "title": "ListLocations",
+            "description": "Provides the details for all of a business's locations.\n\nMost other Connect API endpoints have a required `location_id` path parameter.\nThe `id` field of the [`Location`](#type-location) objects returned by this\nendpoint correspond to that `location_id` parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_locations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCheckout": {
+            "main": "./lib/actions/CreateCheckout.js",
+            "title": "CreateCheckout",
+            "description": "Creates a [Checkout](#type-checkout) response that links a\n`checkoutId` and `checkout_page_url` that customers can be directed to in\norder to provide their payment information using a payment processing\nworkflow hosted on connect.squareup.com.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCheckout.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_locations__location_id__refunds": {
+            "main": "./lib/actions/get_v2_locations__location_id__refunds.js",
+            "title": "ListRefunds",
+            "description": "Lists refunds for one of a business's locations.\n\nRefunds with a `status` of `PENDING` are not currently included in this\nendpoint's response.\n\nMax results per [page](#paginatingresults): 50",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_locations__location_id__refunds.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTransactions": {
+            "main": "./lib/actions/ListTransactions.js",
+            "title": "ListTransactions",
+            "description": "Lists transactions for a particular location.\n\nMax results per [page](#paginatingresults): 50",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTransactions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Charge": {
+            "main": "./lib/actions/Charge.js",
+            "title": "Charge",
+            "description": "Charges a card represented by a card nonce or a customer's card on file.\n\nYour request to this endpoint must include _either_:\n\n- A value for the `card_nonce` parameter (to charge a card nonce generated\nwith the `SqPaymentForm`)\n- Values for the `customer_card_id` and `customer_id` parameters (to charge\na customer's card on file)\n\nIn order for an e-commerce payment to potentially qualify for\n[Square chargeback protection](https://squareup.com/help/article/5394), you\n_must_ provide values for the following parameters in your request:\n\n- `buyer_email_address`\n- At least one of `billing_address` or `shipping_address`\n\nWhen this response is returned, the amount of Square's processing fee might not yet be\ncalculated. To obtain the processing fee, wait about ten seconds and call\n[RetrieveTransaction](#endpoint-retrievetransaction). See the `processing_fee_money`\nfield of each [Tender included](#type-tender) in the transaction.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Charge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RetrieveTransaction": {
+            "main": "./lib/actions/RetrieveTransaction.js",
+            "title": "RetrieveTransaction",
+            "description": "Retrieves details for a single transaction.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RetrieveTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CaptureTransaction": {
+            "main": "./lib/actions/CaptureTransaction.js",
+            "title": "CaptureTransaction",
+            "description": "Captures a transaction that was created with the [Charge](#endpoint-charge)\nendpoint with a `delay_capture` value of `true`.\n\nSee [Delayed capture transactions](/articles/delayed-capture-transactions/)\nfor more information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CaptureTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_locations__location_id__transactions__transaction_id__refund": {
+            "main": "./lib/actions/post_v2_locations__location_id__transactions__transaction_id__refund.js",
+            "title": "CreateRefund",
+            "description": "Initiates a refund for a previously charged tender.\n\nYou must issue a refund within 120 days of the associated payment. See\n(this article)[https://squareup.com/help/us/en/article/5060] for more information\non refund behavior.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_locations__location_id__transactions__transaction_id__refund.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VoidTransaction": {
+            "main": "./lib/actions/VoidTransaction.js",
+            "title": "VoidTransaction",
+            "description": "Cancels a transaction that was created with the [Charge](#endpoint-charge)\nendpoint with a `delay_capture` value of `true`.\n\nSee [Delayed capture transactions](/articles/delayed-capture-transactions/)\nfor more information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VoidTransaction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

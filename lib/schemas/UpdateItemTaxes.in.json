@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "",
+            "example": {
+                "request_body": {
+                    "item_ids": [
+                        "H42BRLUJ5KTZTTMPVSLFAACQ",
+                        "2JXOBJIHCWBQ4NZ3RIXQGJA6"
+                    ],
+                    "taxes_to_disable": [
+                        "AQCEGCEBBQONINDOHRGZISEX"
+                    ],
+                    "taxes_to_enable": [
+                        "4WRCNHCJZDVLSNDQ35PP6YAD"
+                    ]
+                },
+                "request_url": "https://connect.squareup.com/v2/update-item-taxes"
+            },
+            "properties": {
+                "item_ids": {
+                    "description": "The [CatalogItem](#type-catalogitem)s whose enabled/disabled [CatalogTax](#type-catalogtax)es are being updated.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "taxes_to_disable": {
+                    "description": "The set of [CatalogTax](#type-catalogtax)es (referenced by ID) to disable for the [CatalogItem](#type-catalogitem).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "taxes_to_enable": {
+                    "description": "The set of [CatalogTax](#type-catalogtax)es (referenced by ID) to enable for the [CatalogItem](#type-catalogitem).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "item_ids"
+            ],
+            "type": "object",
+            "x-sq-sdk-sample-code": {
+                "csharp": "/sdk_samples/Catalog/UpdateItemTaxes/UpdateItemTaxesRequest.csharp",
+                "php": "/sdk_samples/Catalog/UpdateItemTaxes/UpdateItemTaxesRequest.php",
+                "python": "/sdk_samples/Catalog/UpdateItemTaxes/UpdateItemTaxesRequest.python",
+                "ruby": "/sdk_samples/Catalog/UpdateItemTaxes/UpdateItemTaxesRequest.ruby"
+            }
+        }
+    }
+}

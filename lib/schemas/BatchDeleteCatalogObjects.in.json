@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "",
+            "example": {
+                "request_body": {
+                    "object_ids": [
+                        "W62UWFY35CWMYGVWK6TWJDNI",
+                        "AA27W3M2GGTF3H6AVPNB77CK"
+                    ]
+                },
+                "request_url": "https://connect.squareup.com/v2/catalog/batch-delete"
+            },
+            "properties": {
+                "object_ids": {
+                    "description": "The IDs of the [CatalogObject](#type-catalogobject)s to be deleted. When an object is deleted, other objects\nin the graph that depend on that object will be deleted as well (for example, deleting a\n[CatalogItem](#type-catalogitem) will delete its [CatalogItemVariation](#type-catalogitemvariation)s).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object",
+            "x-sq-sdk-sample-code": {
+                "csharp": "/sdk_samples/Catalog/BatchDeleteCatalogObjects/BatchDeleteCatalogObjectsRequest.csharp",
+                "php": "/sdk_samples/Catalog/BatchDeleteCatalogObjects/BatchDeleteCatalogObjectsRequest.php",
+                "python": "/sdk_samples/Catalog/BatchDeleteCatalogObjects/BatchDeleteCatalogObjectsRequest.python",
+                "ruby": "/sdk_samples/Catalog/BatchDeleteCatalogObjects/BatchDeleteCatalogObjectsRequest.ruby"
+            }
+        }
+    }
+}

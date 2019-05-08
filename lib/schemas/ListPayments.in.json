@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "order": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ]
+        },
+        "begin_time": {
+            "required": false,
+            "type": "string"
+        },
+        "end_time": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "type": "integer",
+            "maximum": 200
+        },
+        "batch_token": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

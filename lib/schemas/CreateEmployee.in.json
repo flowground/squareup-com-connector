@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Represents one of a business's employees.",
+            "externalDocs": {
+                "description": "Read the offical documentation here:",
+                "url": "https://docs.connect.squareup.com/api/connect/v1/#datatype-employee"
+            },
+            "properties": {
+                "authorized_location_ids": {
+                    "description": "The IDs of the locations the employee is allowed to clock in at.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                },
+                "created_at": {
+                    "description": "The time when the employee entity was created, in ISO 8601 format.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The employee's email address.",
+                    "type": "string"
+                },
+                "external_id": {
+                    "description": "An ID the merchant can set to associate the employee with an entity in another system.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "first_name": {
+                    "description": "The employee's first name.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The employee's unique ID.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "last_name": {
+                    "description": "The employee's last name.",
+                    "type": "string"
+                },
+                "role_ids": {
+                    "description": "The ids of the employee's associated roles. Currently, you can specify only one or zero roles per employee.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "description": "CWhether the employee is ACTIVE or INACTIVE. Inactive employees cannot sign in to Square Register.Merchants update this field from the Square Dashboard. ",
+                    "enum": [
+                        "ACTIVE",
+                        "INACTIVE"
+                    ],
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "The time when the employee entity was most recently updated, in ISO 8601 format.",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "first_name",
+                "last_name"
+            ],
+            "type": "object"
+        }
+    }
+}

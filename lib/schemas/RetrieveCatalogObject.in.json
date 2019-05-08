@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "object_id": {
+            "required": true,
+            "type": "string"
+        },
+        "include_related_objects": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

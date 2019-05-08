@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "id": {
+                    "description": "The category's unique ID.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The category's name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

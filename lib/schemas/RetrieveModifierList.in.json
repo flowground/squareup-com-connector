@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "modifier_list_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

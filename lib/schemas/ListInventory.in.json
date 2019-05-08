@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "maximum": 1000
+        },
+        "batch_token": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

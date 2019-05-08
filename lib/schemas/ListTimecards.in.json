@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "order": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ]
+        },
+        "employee_id": {
+            "required": false,
+            "type": "string"
+        },
+        "begin_clockin_time": {
+            "required": false,
+            "type": "string"
+        },
+        "end_clockin_time": {
+            "required": false,
+            "type": "string"
+        },
+        "begin_clockout_time": {
+            "required": false,
+            "type": "string"
+        },
+        "end_clockout_time": {
+            "required": false,
+            "type": "string"
+        },
+        "begin_updated_at": {
+            "required": false,
+            "type": "string"
+        },
+        "end_updated_at": {
+            "required": false,
+            "type": "string"
+        },
+        "deleted": {
+            "required": false,
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer",
+            "maximum": 200
+        },
+        "batch_token": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

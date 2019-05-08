@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "variation_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "adjustment_type": {
+                    "description": "The reason for the inventory adjustment.",
+                    "enum": [
+                        "SALE",
+                        "RECEIVE_STOCK",
+                        "MANUAL_ADJUST"
+                    ],
+                    "type": "number"
+                },
+                "memo": {
+                    "description": "A note about the inventory adjustment.",
+                    "type": "string"
+                },
+                "quantity_delta": {
+                    "description": "The number to adjust the variation's quantity by.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

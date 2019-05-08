@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Represents a timecard for an employee.",
+            "externalDocs": {
+                "description": "Read the offical documentation here:",
+                "url": "https://docs.connect.squareup.com/api/connect/v1/#datatype-timecard"
+            },
+            "properties": {
+                "clockin_location_id": {
+                    "description": "The ID of the location the employee clocked in from, if any.",
+                    "type": "string"
+                },
+                "clockin_time": {
+                    "description": "The clock-in time for the timecard, in ISO 8601 format.",
+                    "type": "string"
+                },
+                "clockout_location_id": {
+                    "description": "The ID of the location the employee clocked out from. Provide this value only if importing timecard information from another system.",
+                    "type": "string"
+                },
+                "clockout_time": {
+                    "description": "The clock-out time for the timecard, in ISO 8601 format. Provide this value only if importing timecard information from another system.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "The time when the timecard was created, in ISO 8601 format.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "If true, the timecard was deleted by the merchant, and it is no longer valid.",
+                    "readOnly": true,
+                    "type": "boolean"
+                },
+                "employee_id": {
+                    "description": "The ID of the employee the timecard is associated with.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The timecard's unique ID.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "The time when the timecard was most recently updated, in ISO 8601 format.",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "employee_id"
+            ],
+            "type": "object"
+        }
+    }
+}

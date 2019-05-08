@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "page_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "cells": {
+                    "description": "The cells included on the page.",
+                    "items": {
+                        "properties": {
+                            "column": {
+                                "description": "The column of the cell. Always an integer between 0 and 4, inclusive.",
+                                "type": "integer"
+                            },
+                            "object_id": {
+                                "description": "The unique identifier of the entity represented in the cell. Not present for cells with an object_type of PLACEHOLDER.",
+                                "type": "string"
+                            },
+                            "object_type": {
+                                "description": "The type of entity represented in the cell (ITEM, DISCOUNT, CATEGORY, or PLACEHOLDER).",
+                                "items": {
+                                    "enum": [
+                                        "ITEM",
+                                        "DISCOUNT",
+                                        "CATEGORY",
+                                        "PLACEHOLDER"
+                                    ],
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "page_id": {
+                                "description": "The unique identifier of the page the cell is included on.",
+                                "type": "string"
+                            },
+                            "placeholder_type": {
+                                "description": "For a cell with an object_type of PLACEHOLDER, this value indicates the cell's special behavior.",
+                                "items": {
+                                    "enum": [
+                                        "ALL_ITEMS",
+                                        "DISCOUNTS_CATEGORY",
+                                        "REWARDS_FINDER"
+                                    ],
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "row": {
+                                "description": "The row of the cell. Always an integer between 0 and 4, inclusive.",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The page's unique identifier.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The page's name, if any.",
+                    "type": "string"
+                },
+                "page_index": {
+                    "description": "The page's position in the merchant's list of pages. Always an integer between 0 and 4, inclusive.",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

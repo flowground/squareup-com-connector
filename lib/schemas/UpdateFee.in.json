@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "fee_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "adjustment_type": {
+                    "description": "The type of adjustment the fee applies to a payment. Currently, this value is TAX for all fees.",
+                    "enum": [
+                        "TAX"
+                    ],
+                    "type": "string"
+                },
+                "applies_to_custom_amounts": {
+                    "description": "If true, the fee applies to custom amounts entered into Square Register that are not associated with a particular item.",
+                    "type": "boolean"
+                },
+                "calculation_phase": {
+                    "description": "Forthcoming",
+                    "enum": [
+                        "FEE_SUBTOTAL_PHASE",
+                        "OTHER",
+                        "FEE_TOTAL_PHASE"
+                    ],
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "If true, the fee is applied to all appropriate items. If false, the fee is not applied at all.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "The fee's unique ID.",
+                    "type": "string"
+                },
+                "inclusion_type": {
+                    "description": "Whether the fee is ADDITIVE or INCLUSIVE.",
+                    "enum": [
+                        "ADDITIVE",
+                        "INCLUSIVE"
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The fee's name.",
+                    "type": "string"
+                },
+                "rate": {
+                    "description": "The rate of the fee, as a string representation of a decimal number. A value of 0.07 corresponds to a rate of 7%.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "In countries with multiple classifications for sales taxes, indicates which classification the fee falls under. Currently relevant only to Canadian merchants.",
+                    "enum": [
+                        "CA_GST",
+                        "CA_HST",
+                        "CA_PST",
+                        "CA_QST",
+                        "JP_CONSUMPTION_TAX",
+                        "CA_PEI_PST",
+                        "US_SALES_TAX",
+                        "OTHER"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

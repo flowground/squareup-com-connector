@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "modifier_list_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "The modifier list's name.",
+                    "type": "string"
+                },
+                "selection_type": {
+                    "description": "Indicates whether multiple options from the modifier list can be applied to a single item.",
+                    "enum": [
+                        "SINGLE",
+                        "MULTIPLE"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

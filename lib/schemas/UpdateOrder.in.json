@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "order_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "action": {
+                    "description": "The action to perform on the order (COMPLETE, CANCEL, or REFUND).",
+                    "enum": [
+                        "COMPLETE",
+                        "CANCEL",
+                        "REFUND"
+                    ],
+                    "type": "string"
+                },
+                "canceled_note": {
+                    "description": "A merchant-specified note about the canceling of the order. Only valid if action is CANCEL.",
+                    "type": "string"
+                },
+                "completed_note": {
+                    "description": "A merchant-specified note about the completion of the order. Only valid if action is COMPLETE.",
+                    "type": "string"
+                },
+                "refunded_note": {
+                    "description": "A merchant-specified note about the refunding of the order. Only valid if action is REFUND.",
+                    "type": "string"
+                },
+                "shipped_tracking_number": {
+                    "description": "The tracking number of the shipment associated with the order. Only valid if action is COMPLETE.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "action"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "location_id": {
+            "required": true,
+            "type": "string"
+        },
+        "page_id": {
+            "required": true,
+            "type": "string"
+        },
+        "row": {
+            "required": false,
+            "type": "string"
+        },
+        "column": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

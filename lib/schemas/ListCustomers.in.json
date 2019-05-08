@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "cursor": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
